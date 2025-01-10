@@ -4,7 +4,7 @@ body {
     margin: 0;
     
     
-    background: linear-gradient(to bottom, #1a011b, #000000);
+    background: linear-gradient(to bottom, #2d042e, #000000);
   
     
     background-repeat: no-repeat;
@@ -15,29 +15,50 @@ body {
     background-position: center; 
     overflow: hidden;            
   }
-  .projects-page-container {
+
+  .content-container {
+    position: fixed;      
+    top: 56px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    
+  
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
-    min-height: 100vh;
     margin: 0;
-    padding: 0;
+    
     overflow: hidden;
     box-sizing: border-box;
+    padding-bottom: 2rem;
   }
+    
+
+
+
+
   
   .projects-scroll-pane {
-    width: 60%;
-    max-width: 800px;
+    width: 70%;
+    max-width: 900px;
     height: 100vh;
     background-color: #2a2a2a;
     border-radius: 0;         
     padding: 1.5rem;
+    padding-bottom: 3rem;
     color: #e6e6e6;
     overflow-y: auto;
     box-sizing: border-box;
     opacity: 100%;
+  }
+
+  .content-card {
+    padding: 1rem;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    text-align: center;
+    
   }
   
   .project-card {
@@ -46,6 +67,7 @@ body {
     background-color: #3a3a3a;
     border-radius: 8px;
     text-align: center;
+    
   }
   
   .project-card h2 {
@@ -58,6 +80,27 @@ body {
     line-height: 1.5;
   }
   
+
+
+  .project-card h2 {
+    margin: 1rem 0 1rem; 
+    color: #fff;
+  }
+  
+
+  .project-card p {
+    margin: 0.75rem 0; 
+    line-height: 1.6;   
+  }
+  
+
+  .project-media {
+    display: block;
+    margin: 0 auto 1rem; 
+    max-width: 600px;
+    border-radius: 8px;
+  }
+
   .project-media {
     width: 100%;
     max-width: 600px;
@@ -94,12 +137,21 @@ body {
   
   
   .fade-out {
+    transition: opacity 0.5s ease; 
     opacity: 0; 
     pointer-events: none;
   }
   
   
   .fade-in {
+    transition: opacity 1s ease 1s; 
     opacity: 1;
   }
   
+  .navbar-top {
+    position: fixed;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;       
+  }

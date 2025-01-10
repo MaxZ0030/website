@@ -7,10 +7,10 @@ export default function NavBar() {
   const pathname = usePathname(); 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link href="/" className="navbar-brand">
-          My Website
+          Max Zhou
         </Link>
 
         <button
@@ -55,7 +55,7 @@ export default function NavBar() {
                 Projects
               </Link>
             </li>
-
+            {/* 
             <li className="nav-item">
               <Link
                 href="/contact"
@@ -65,6 +65,28 @@ export default function NavBar() {
                 Contact
               </Link>
             </li>
+             */}
+            <li className="nav-item">
+              <Link
+                href="/resume"
+                className={`nav-link ${pathname === "/resume" ? "active" : ""}`}
+                aria-current={pathname === "/resume" ? "page" : undefined}
+              >
+                Resume
+              </Link>
+            </li>
+
+            {/* <li className="nav-item">
+              <a 
+                href="/Official_Resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="nav-link"
+              >
+                Resume
+              </a>
+            </li> */}
+
           </ul>
         </div>
       </div>

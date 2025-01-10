@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <main style={{ position: 'relative', zIndex: 1, padding: '1rem' }}>
-      <h1>Welcome to my site!</h1>
+      {/* <h1>Welcome to my site!</h1>
       <p>
         Under construction!
       </p>
@@ -15,7 +15,7 @@ export default function HomePage() {
         style={{ color: 'blue', textDecoration: 'underline' }}
       >
         Go to About
-      </Link>
+      </Link> */}
     </main>
   );
 }
