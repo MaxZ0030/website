@@ -159,3 +159,7 @@ body {
   .hidden {
     opacity: 0;
   }
+
+  .custom-link {
+    color:aqua;
+  }
