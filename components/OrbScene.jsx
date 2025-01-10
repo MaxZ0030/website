@@ -24,6 +24,7 @@ export default function OrbScene() {
   const canvasRef = useRef(null);
   const pathname = usePathname();
   const [zIndex, setZIndex] = useState(20);
+  const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     if (!initialized) {
       initialized = true;
@@ -39,6 +40,9 @@ export default function OrbScene() {
       }
     }
     window.addEventListener("resize", onWindowResize);
+    requestAnimationFrame(() => {
+        setIsVisible(true);
+    });
     return () => window.removeEventListener("resize", onWindowResize);
   }, []);
 
@@ -560,16 +564,15 @@ export default function OrbScene() {
 
   return (
     <canvas
-      className={`fade-in`}
       ref={canvasRef}
+      className={`orb-canvas ${isVisible ? "fade-in" : "hidden"}`}
       style={{
         position: "fixed",
         top: 0,
         left: 0,
         width: "100vw",
         height: "100vh",
-        zIndex: zIndex,
-        pointerEvents: "auto", 
+        pointerEvents: "auto",
       }}
     />
   );
