@@ -17,8 +17,8 @@ export default function AboutPage() {
         <br></br>
         <br></br>
         <p>
-          Hello! My name is Max Zhou. I'm a former Software Development Engineer at Amazon Lab126.
-          I went to the University of Texas at Austin for my B.S. in Electrical and Computer Engineering.
+          Hello! My name is Max Zhou. I'm a former Software Development Engineer from Amazon Lab126.
+          I went to the University of Texas at Austin for my B.S. in Electrical and Computer Engineering, with a certificate in Computer Science.
           In my spare time, I love reading, cooking, and playing games.
         </p>
 
@@ -28,7 +28,8 @@ export default function AboutPage() {
             <strong>Contact me:</strong>
             <br />
             {/* Email */}
-            <Link href="mailto:maxzhou0030@gmail.com">
+            <Link href="mailto:maxzhou0030@gmail.com"
+              className="custom-link">
               maxzhou0030@gmail.com
             </Link>
             <br></br>
@@ -36,9 +37,10 @@ export default function AboutPage() {
             <br />
             {/* LinkedIn */}
             <Link
-              href="https://www.linkedin.com/in/MaxZ0030"
+              href="https://www.linkedin.com/in/maxzhouece/"
               target="_blank"
               rel="noopener noreferrer"
+              className="custom-link"
             >
               My LinkedIn
             </Link>
@@ -48,6 +50,7 @@ export default function AboutPage() {
               href="https://github.com/MaxZ0030"
               target="_blank"
               rel="noopener noreferrer"
+              className="custom-link"
             >
               My GitHub
             </Link>

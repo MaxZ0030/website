@@ -8,7 +8,7 @@ export default function ProjectsPage() {
       id: 6,
       title: "Bleep Bloop (2024)",
       description:
-        "Created in Godot with Meggie Cheng and Ariz Taqvi for Proc Game Jam 2024 in Godot. A procedurally generated music maker.",
+        "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for Proc Game Jam 2024 in Godot. A procedurally generated music maker utilizing Conway's Game of Life.",
       video: "/assets/BleepBloop.mp4",
       link: "https://tauntyazagoos.itch.io/dew",
       linktext: "Click here to go download the app!",
@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       id: 5,
       title: "Look Sharp, Major! (2024)",
       description:
-        "Created in Godot with Meggie Cheng and Ariz Taqvi for GMTK Game Jam 2024. Bullet hell inspired by Vampire Survivors.",
+        "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for GMTK Game Jam 2024. A bullet hell inspired by Vampire Survivors to the tune of 'In the Hall of the Mountain King' by Edvard Grieg.",
       image: "/assets/LSMajor.png",
       link: "https://tauntyazagoos.itch.io/look-sharp-major",
       linktext: "Click here to go play/download the game!",
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
       id: 4,
       title: "Dew (2024)",
       description:
-        "Created in Godot with Meggie Cheng and Ariz Taqvi for Pixel Game Jam 2024. Dew is a puzzle platformer where you can utilize form transformations to solve puzzles.",
+        "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for Pixel Game Jam 2024. A puzzle platformer where you can utilize form transformations to solve puzzles.",
       image: "/assets/DewBanner.png",
       link: "https://tauntyazagoos.itch.io/dew",
       linktext: "Click here to go play/download the game!",
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       id: 3,
       title: "Digi Physica (2022)",
       description:
-        "Created by Max Zhou, Amy Chang, Julian Wang, Kellan Cervany, and Kristen Erlon for Senior Design Project. A combination of hardware sensors and visual image processing to create a tool to facilitate remote physical therapy.",
+        "Created by Max Zhou, Amy Chang, Julian Wang, Kellan Cervany, and Kristen Erlon at UT Austin for our senior design project. A combination of hardware sensors and digital image processing were used to create an arm sleeve to facilitate remote physical therapy.",
       video: "/assets/DigiPhysi.mp4",
     //   link: "https://www.youtube.com/watch?v=x2KPqDh41fM&feature=youtu.be",
     //   linktext: "Click here to go play/download the game!",
@@ -45,14 +45,14 @@ export default function ProjectsPage() {
       id: 2,
       title: "DASH (2017)",
       description:
-        "Game code, graphics, music, and design belong to me, Meggie Cheng, and Ariz Taqvi. Created in Gamemaker Studio. Won 10th place at FBLA Nationals Computer Game & Simulation Programming competition.",
+        "Game code, graphics, music, and design belong to Max Zhou, Meggie Cheng, and Ariz Taqvi. Created in Gamemaker Studio. Won 10th place at FBLA Nationals Computer Game & Simulation Programming competition.",
       video: "/assets/DASHDemo.mp4",
     },
     {
       id: 1,
       title: "Sweet Dreams (2016)",
       description:
-        "Game code, graphics, music, and design belong to me, Meggie Cheng, and Ariz Taqvi. Created in Gamemaker Studio.",
+        "Game code, graphics, music, and design belong to Max Zhou, Meggie Cheng, and Ariz Taqvi. Created in Gamemaker Studio.",
       video: "/assets/SweetDreamsDemo.mp4",
     },
   ]);
@@ -100,7 +100,7 @@ export default function ProjectsPage() {
               href={proj.link}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#40a0ff", textDecoration: "underline" }}
+              className="custom-link"
             >
               {proj.linktext}
             </a>
