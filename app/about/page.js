@@ -59,7 +59,7 @@ export default function AboutPage() {
 
         
         <p style={{ marginTop: '2rem', fontStyle: 'italic' }}>
-          Disclaimer: Everything on this site was created by me!
+          Copyright ©2025 All rights reserved | This website was made by me!
         </p>
 
       </main>
