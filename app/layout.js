@@ -1,33 +1,27 @@
-// src/app/layout.js
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import './globals.css';          
-import NavBar from '../components/NavBar';
-import OrbScene from '../components/OrbScene';
-import FadeContainer from '../components/FadeContainer';
+import OrbScene from "../components/OrbScene";
+import ContentContainer from "../components/ContentContainer";
+import NavBar from "../components/NavBar";
 
 export const metadata = {
-  title: 'Dark Mode with Orb',
-  description: 'My Next.js site with a Three.js orb and a hover navbar',
+  title: "Max Zhou",
+  description: "My website!",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-
         
         
-        <OrbScene />
-
         
         <NavBar />
-        <FadeContainer>
-        <main className="relative z-10">
+        <OrbScene />
+        <ContentContainer>
           {children}
-        </main>    
-        </FadeContainer>
-        
+        </ContentContainer>
         
       </body>
     </html>

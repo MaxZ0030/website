@@ -1,5 +1,5 @@
 "use client"; 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; 
 import * as THREE from "three";
 import { MathUtils } from "three";
@@ -18,11 +18,12 @@ const _updateFunctions = [];
 
 let isGrowing = false;
 let isShrinking = false;
+let isDragging = false;
 
 export default function OrbScene() {
   const canvasRef = useRef(null);
   const pathname = usePathname();
-
+  const [zIndex, setZIndex] = useState(20);
   useEffect(() => {
     if (!initialized) {
       initialized = true;
@@ -49,14 +50,16 @@ export default function OrbScene() {
   
       isGrowing = false;
       isShrinking = true;
-
+      setZIndex(20);
 
 
     } else {
 
-  
+        
       isGrowing = true;
       isShrinking = false;
+      setZIndex(-999);
+
     }
   }, [pathname]);
 
@@ -136,16 +139,57 @@ export default function OrbScene() {
     scene.add(pyramidPoints);
 
     
-    pyramidPoints.scale.set(minScale, minScale, minScale);
+    
+    let hasLoaded = localStorage.getItem("orbHasLoaded");
+    if (!hasLoaded) {
+      localStorage.setItem("orbHasLoaded", "true");
+      // If user started on a non-home route => set orb to max
+      if (pathname !== "/") {
+        pyramidPoints.scale.set(maxScale, maxScale, maxScale);
+      }
+    }
+    else{
+        pyramidPoints.scale.set(minScale, minScale, minScale);
+    }
+    setInitialRandomSpin();
+    addInteractivity(geometry, positions, colors, outerColors);
+  }
+
+  let rotationVelocity = new THREE.Quaternion();
+  let lastRotationAxis = new THREE.Vector3(0, 0, 0);
+  function setInitialRandomSpin() {
+    if (!pyramidPoints) return;
 
     
-    addInteractivity(geometry, positions, colors, outerColors);
+    const randomAxis = new THREE.Vector3(
+      Math.random() - 0.5,
+      Math.random() - 0.5,
+      Math.random() - 0.5
+    ).normalize();
+
+    
+    const randomAngle = Math.PI / 180;
+
+    
+    const quaternion = new THREE.Quaternion();
+    quaternion.setFromAxisAngle(randomAxis, randomAngle);
+    lastRotationAxis.copy(randomAxis);
+    
+    pyramidPoints.quaternion.multiplyQuaternions(
+      quaternion,
+      pyramidPoints.quaternion
+    );
+
+    rotationVelocity.copy(quaternion);
+
   }
 
   /** Mouse event code **/
   function addInteractivity(geometry, positions, colors, outerColors) {
-    const mouse = new THREE.Vector2(-Infinity, -Infinity);
+    const mouse = new THREE.Vector2(-0, -0);
+    
     const raycaster = new THREE.Raycaster();
+    raycaster.ray.origin.set(-1e6, -1e6, -1e6);
     raycaster.far = 4;
     raycaster.params.Points.threshold = 0.15;
 
@@ -271,84 +315,159 @@ export default function OrbScene() {
       }
     }
 
-    // Mouse events
-    let isDragging = false;
     let previousMousePosition = { x: 0, y: 0 };
-    let rotationVelocity = new THREE.Quaternion();
     const dampingFactor = 0.85;
     const minRotationSpeed = 0.005;
     const movementThreshold = 2;
     let hasSignificantMovement = false;
-    let lastRotationAxis = new THREE.Vector3(0, 0, 0);
-    let lastRotationAngle = 0;
 
     const domElement = canvasRef.current;
 
-    domElement.addEventListener("mousedown", (event) => {
-      isDragging = true;
-      previousMousePosition.x = event.clientX;
-      previousMousePosition.y = event.clientY;
-      rotationVelocity.identity();
-      hasSignificantMovement = false;
-    });
+    
+    function setNormalizedMouse(x, y) {
+        mouse.x = (x / window.innerWidth) * 2 - 1;
+        mouse.y = -(y / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+    }
 
-    domElement.addEventListener("mousemove", (event) => {
-      const { clientX, clientY } = event;
-      mouse.x = (clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(clientY / window.innerHeight) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
+    /** Mouse event handlers **/
+    function onMouseDown(event) {
+        isDragging = true;
+        previousMousePosition.x = event.clientX;
+        previousMousePosition.y = event.clientY;
+        rotationVelocity.identity();
+        hasSignificantMovement = false;
+    }
 
-      if (isDragging) {
+    function onMouseMove(event) {
+        console.log(`Mouse move -> x: ${event.clientX}, y: ${event.clientY}`);
+        if (isDragging) {
         const deltaMove = {
-          x: clientX - previousMousePosition.x,
-          y: clientY - previousMousePosition.y,
+            x: event.clientX - previousMousePosition.x,
+            y: event.clientY - previousMousePosition.y,
         };
 
         if (
-          Math.abs(deltaMove.x) > movementThreshold ||
-          Math.abs(deltaMove.y) > movementThreshold
+            Math.abs(deltaMove.x) > movementThreshold ||
+            Math.abs(deltaMove.y) > movementThreshold
         ) {
-          hasSignificantMovement = true;
+            hasSignificantMovement = true;
         }
 
         const axis = new THREE.Vector3(deltaMove.y, deltaMove.x, 0).normalize();
         const angle =
-          Math.sqrt(deltaMove.x ** 2 + deltaMove.y ** 2) * normalRotationSpeed;
+            Math.sqrt(deltaMove.x ** 2 + deltaMove.y ** 2) * normalRotationSpeed;
 
         lastRotationAxis.copy(axis);
-        lastRotationAngle = angle;
-
-        // Apply rotation
+        
         const quaternion = new THREE.Quaternion();
         quaternion.setFromAxisAngle(axis, angle);
         pyramidPoints.quaternion.multiplyQuaternions(
-          quaternion,
-          pyramidPoints.quaternion
+            quaternion,
+            pyramidPoints.quaternion
         );
         rotationVelocity.copy(quaternion);
 
-        previousMousePosition.x = clientX;
-        previousMousePosition.y = clientY;
-      }
-    });
+        previousMousePosition.x = event.clientX;
+        previousMousePosition.y = event.clientY;
+        }
 
-    domElement.addEventListener("mouseup", () => {
-      if (currIntersects.size > 0) {
-        console.log("Clicked a hovered point, but ignoring manual grow—auto logic now controls scale.");
-      }
-      isDragging = false;
+        setNormalizedMouse(event.clientX, event.clientY);
+    }
 
-      if (!hasSignificantMovement) {
+    function onMouseUp() {
+        isDragging = false;
+        
+        if (!hasSignificantMovement) {
         rotationVelocity.identity();
         lastRotationAxis.set(0, 0, 0);
-      }
-    });
+        }
+    }
 
-    domElement.addEventListener("mouseleave", () => {
-      isDragging = false;
-    });
+    function onMouseLeave() {
+        isDragging = false;
+    }
+
+    function onTouchStart(event) {
+
+        if (event.touches.length === 1) {
+        isDragging = true;
+        const touch = event.touches[0];
+        previousMousePosition.x = touch.clientX;
+        previousMousePosition.y = touch.clientY;
+        rotationVelocity.identity();
+        hasSignificantMovement = false;
+
+
+        setNormalizedMouse(touch.clientX, touch.clientY);
+        }
+    }
+
+    function onTouchMove(event) {
+        if (isDragging && event.touches.length === 1) {
+        const touch = event.touches[0];
+        const deltaMove = {
+            x: touch.clientX - previousMousePosition.x,
+            y: touch.clientY - previousMousePosition.y,
+        };
+
+        if (
+            Math.abs(deltaMove.x) > movementThreshold ||
+            Math.abs(deltaMove.y) > movementThreshold
+        ) {
+            hasSignificantMovement = true;
+        }
+
+        const axis = new THREE.Vector3(deltaMove.y, deltaMove.x, 0).normalize();
+        const angle =
+            Math.sqrt(deltaMove.x ** 2 + deltaMove.y ** 2) * normalRotationSpeed;
+
+        lastRotationAxis.copy(axis);
+
+        const quaternion = new THREE.Quaternion();
+        quaternion.setFromAxisAngle(axis, angle);
+        pyramidPoints.quaternion.multiplyQuaternions(
+            quaternion,
+            pyramidPoints.quaternion
+        );
+        rotationVelocity.copy(quaternion);
+
+        previousMousePosition.x = touch.clientX;
+        previousMousePosition.y = touch.clientY;
+
+        setNormalizedMouse(touch.clientX, touch.clientY);
+        }
+    }
+
+    function onTouchEnd(event) {
+
+        if (event.touches.length === 0) {
+        isDragging = false;
+        if (!hasSignificantMovement) {
+            rotationVelocity.identity();
+            lastRotationAxis.set(0, 0, 0);
+        }
+        }
+    }
+
+    function onTouchCancel() {
+        isDragging = false;
+    }
 
     
+    domElement.addEventListener("mousedown", onMouseDown);
+    domElement.addEventListener("mousemove", onMouseMove);
+    domElement.addEventListener("mouseup", onMouseUp);
+    domElement.addEventListener("mouseleave", onMouseLeave);
+
+    
+    domElement.addEventListener("touchstart", onTouchStart, { passive: true });
+    domElement.addEventListener("touchmove", onTouchMove, { passive: true });
+    domElement.addEventListener("touchend", onTouchEnd, { passive: true });
+    domElement.addEventListener("touchcancel", onTouchCancel, { passive: true });
+
+
+
     function handleOrbScaling() {
       const scale = pyramidPoints.scale.x;
 
@@ -388,18 +507,7 @@ export default function OrbScene() {
       return normalRotationSpeed + (slowRotationSpeed - normalRotationSpeed) * ratio;
     }
 
-    function animateOrb() {
-      // Hover logic
-      trackMouse();
-      
-      animateHover();
-      
-
-      // Auto-scaling logic
-      handleOrbScaling();
-
-      // Rotational inertia
-      if (!isDragging) {
+    function rotateOrb(){
         rotationVelocity.slerp(new THREE.Quaternion(), 1 - dampingFactor);
         const angle = rotationVelocity.angleTo(new THREE.Quaternion());
 
@@ -421,6 +529,21 @@ export default function OrbScene() {
         } else {
           rotationVelocity.identity();
         }
+    }
+
+    function animateOrb() {
+      // Hover logic
+      trackMouse();
+      
+      animateHover();
+      
+
+      // Auto-scaling logic
+      handleOrbScaling();
+
+      // Rotational inertia
+      if (!isDragging) {
+        rotateOrb();
       }
     }
 
@@ -437,6 +560,7 @@ export default function OrbScene() {
 
   return (
     <canvas
+      className={`fade-in`}
       ref={canvasRef}
       style={{
         position: "fixed",
@@ -444,7 +568,7 @@ export default function OrbScene() {
         left: 0,
         width: "100vw",
         height: "100vh",
-        zIndex: -1,  // behind everything
+        zIndex: zIndex,
         pointerEvents: "auto", 
       }}
     />

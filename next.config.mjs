@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
-    basePath: 'https://github.com/MaxZ0030/website',
+    //output: 'export',
+    
 };
 
 export default nextConfig;
