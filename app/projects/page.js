@@ -5,12 +5,21 @@ import "../globals.css";
 export default function ProjectsPage() {
   const [projects] = useState([
     {
+      id: 7,
+      title: "That Time I Got Reincarnated as a Gun and Had to Buy People to Protect My House (2025)",
+      description:
+        "Created in Godot by Max Zhou, Meggie Cheng, Ariz Taqvi, and Carlos Camacho for Pirate Jam 16 in Godot. A 3D Voxel art Tower Defense where the main character summmons human turrets to fight weapnos.",
+      video: "/assets/DrkpHg.png",
+      link: "https://tauntyazagoos.itch.io/that-time-i-got-reincarnated-as-a-gun-and-had-to-buy-people-to-protect-my-house",
+      linktext: "Click here to go download the app!",
+    },
+    {
       id: 6,
       title: "Bleep Bloop (2024)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for Proc Game Jam 2024 in Godot. A procedurally generated music maker utilizing Conway's Game of Life.",
       video: "/assets/BleepBloop.mp4",
-      link: "https://tauntyazagoos.itch.io/dew",
+      link: "https://tauntybird.itch.io/bleep-bloop",
       linktext: "Click here to go download the app!",
     },
     {
