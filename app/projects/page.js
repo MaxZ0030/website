@@ -9,9 +9,9 @@ export default function ProjectsPage() {
       title: "That Time I Got Reincarnated as a Gun and Had to Buy People to Protect My House (2025)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng, Ariz Taqvi, and Carlos Camacho for Pirate Jam 16 in Godot. A 3D Voxel art Tower Defense where the main character summmons human turrets to fight weapnos.",
-      video: "/assets/DrkpHg.png",
+      image: "/assets/DrkpHg.png",
       link: "https://tauntyazagoos.itch.io/that-time-i-got-reincarnated-as-a-gun-and-had-to-buy-people-to-protect-my-house",
-      linktext: "Click here to go download the app!",
+      linktext: "Click here to go play/download the game!",
     },
     {
       id: 6,
