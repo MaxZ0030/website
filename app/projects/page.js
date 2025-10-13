@@ -7,7 +7,7 @@ export default function ProjectsPage() {
     {
       id: 10,
       title:
-        "Wizard of Weather",
+        "Wizard of Weather (October 2025)",
       description:
         "Created in Unity by Max Zhou, Alvin Li, Cheryl Wang, Eyana Yan, and Gamma Zheng for the Building Virtual Worlds course. A 3D Virtual Reality (VR) game with a focus of guiding players through indirect control. Theme: Control the weather.",
       video: "/assets/WizardofWeather.mp4",
@@ -18,7 +18,7 @@ export default function ProjectsPage() {
     {
       id: 9,
       title:
-        "Horsepital",
+        "Horsepital (September 2025)",
       description:
         "Created in Unity by Max Zhou, Chufan Chen, Mingrui Xu, Agnes Zhang, and Ailun Zhou for the Building Virtual Worlds course. A 3D game with a focus on creating an intuitive interface for players. Theme: Shoeing a horse.",
       video: "/assets/Horsepital.mp4",
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
     {
       id: 8,
       title:
-        "Cosmic Fruit Loops",
+        "Cosmic Fruit Loops (August 2025)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng, Ariz Taqvi, and CJ Kim for GMTK 2025. Rated in the top 3% out of 9500 entries for popularity. A 2D Puzzle game where the goal is to surround fruit with a snake's body in unique ways. Theme: Loop.",
       image: "/assets/CosmicLoopsBanner.png",
@@ -40,7 +40,7 @@ export default function ProjectsPage() {
     {
       id: 7,
       title:
-        "That Time I Got Reincarnated as a Gun and Had to Buy People to Protect My House (2025)",
+        "That Time I Got Reincarnated as a Gun and Had to Buy People to Protect My House (January 2025)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng, Ariz Taqvi, and Carlos Camacho for Pirate Jam 16. A 3D Voxel Art Tower Defense where the main character summmons human turrets to fight weapons. Theme: You are the weapon",
       image: "/assets/DrkpHg.png",
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
     },
     {
       id: 6,
-      title: "Bleep Bloop (2024)",
+      title: "Bleep Bloop (October 2024)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for Proc Game Jam 2024. A procedurally generated music maker utilizing Conway's Game of Life.",
       video: "/assets/BleepBloop.mp4",
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
     },
     {
       id: 5,
-      title: "Look Sharp, Major! (2024)",
+      title: "Look Sharp, Major! (August 2024)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for GMTK Game Jam 2024. A bullet hell inspired by Vampire Survivors to the tune of 'In the Hall of the Mountain King' by Edvard Grieg. Theme: Built to scale",
       image: "/assets/LSMajor.png",
@@ -70,7 +70,7 @@ export default function ProjectsPage() {
     },
     {
       id: 4,
-      title: "Dew (2024)",
+      title: "Dew (May 2024)",
       description:
         "Created in Godot by Max Zhou, Meggie Cheng and Ariz Taqvi for Pixel Game Jam 2024. A puzzle platformer where you can utilize form transformations to solve puzzles. Theme: Aqua",
       image: "/assets/DewBanner.png",
