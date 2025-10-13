@@ -96,7 +96,7 @@ export default function AboutPage() {
 
         
         <p style={{ marginTop: '2rem', fontStyle: 'italic' }}>
-          Copyright ©2025 All rights reserved | This website was made by me!
+          Copyright ©2025 All rights reserved | This website was developed/coded by me!
         </p>
 
       </main>
