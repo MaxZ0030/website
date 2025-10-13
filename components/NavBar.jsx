@@ -1,11 +1,13 @@
 "use client"; 
 import Link from "next/link";
 import { usePathname } from "next/navigation"; 
-
+import { useEffect } from 'react';
 
 export default function NavBar() {
   const pathname = usePathname(); 
-
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   return (
     <nav className="navbar navbar-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">

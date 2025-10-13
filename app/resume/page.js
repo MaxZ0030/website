@@ -6,7 +6,7 @@ export default function ResumePage() {
     
     
       <iframe
-        src="/Official_Resume.pdf"
+        src="/Zhou_Max_Official_Resume.pdf"
         style={{
           width: "100%",
           height: "100%",
