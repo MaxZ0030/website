@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       title:
         "Horsepital",
       description:
-        "Created in Unity by Max Zhou, Max Zhou, Chufan Chen, Mingrui Xu, Agnes Zhang, and Ailun Zhou for the Building Virtual Worlds course. A 3D game with a focus on creating an intuitive interface for players. Theme: Shoeing a horse.",
+        "Created in Unity by Max Zhou, Chufan Chen, Mingrui Xu, Agnes Zhang, and Ailun Zhou for the Building Virtual Worlds course. A 3D game with a focus on creating an intuitive interface for players. Theme: Shoeing a horse.",
       video: "/assets/Horsepital.mp4",
       link: "https://tauntyazagoos.itch.io/that-time-i-got-reincarnated-as-a-gun-and-had-to-buy-people-to-protect-my-house",
       linktext: "",
