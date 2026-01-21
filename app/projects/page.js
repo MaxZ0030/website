@@ -5,6 +5,28 @@ import "../globals.css";
 export default function ProjectsPage() {
   const [projects] = useState([
     {
+      id: 12,
+      title:
+        "Moooove It! (November 2025)",
+      description:
+        "Created in Unity by Max Zhou, Frieda Hong, Riya Kanani, Quin Xu, and Christina Yin for the Building Virtual Worlds course. Lead programmer and producer for a 5-person local multiplayer 3D game with a focus of balancing counterobjectives. Submitted and showcased at ETC Fall Festival.",
+      video: "/assets/MooooveItDemo.mp4",
+      link: "https://tauntyazagoos.itch.io/that-time-i-got-reincarnated-as-a-gun-and-had-to-buy-people-to-protect-my-house",
+      linktext: "",
+      category: "School Projects",
+    },
+    {
+      id: 11,
+      title:
+        "Skedoggle (October 2025)",
+      description:
+        "Created in Unity by Max Zhou, Martin Baker, Boxuan Li, Esther Jeon, and Ruohao Jing for the Building Virtual Worlds course. Lead programmer for a 3D game with a focus of controlling project scope. Designed and built in a week.",
+      video: "/assets/SkedoggleDemo.mp4",
+      link: "https://tauntyazagoos.itch.io/that-time-i-got-reincarnated-as-a-gun-and-had-to-buy-people-to-protect-my-house",
+      linktext: "",
+      category: "School Projects",
+    },
+    {
       id: 10,
       title:
         "Wizard of Weather (October 2025)",
