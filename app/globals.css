@@ -32,16 +32,26 @@ body {
     overflow: hidden;
     box-sizing: border-box;
     padding-bottom: 2rem;
+
+    opacity: 0;
+    transition: opacity 1s ease;
   }
     
 
+  .content-container.fade-in {
+    opacity: 1;
+  }
 
+  .content-container.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  } 
 
 
   
   .projects-scroll-pane {
     width: 70%;
-    max-width: 900px;
+    max-width: 1200px;
     height: 100vh;
     background-color: #2a2a2a;
     border-radius: 0;         
@@ -68,6 +78,22 @@ body {
     border-radius: 8px;
     text-align: center;
     
+  }
+  .blog-card{
+    text-align:left;
+  }
+
+  .blog-card h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card p {
+    text-indent: 4ch;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
   
   .project-card h2 {
@@ -137,14 +163,14 @@ body {
   
   
   .fade-out {
-    transition: opacity 0.5s ease; 
+    /* transition: opacity 0.5s ease;  */
     opacity: 0; 
     pointer-events: none;
   }
   
   
   .fade-in {
-    transition: opacity 1s ease 1s; 
+    /* transition: opacity 1s ease 1s;  */
     opacity: 1;
   }
   

@@ -60,11 +60,11 @@ export default function NavBar() {
             {/* 
             <li className="nav-item">
               <Link
-                href="/contact"
-                className={`nav-link ${pathname === "/contact" ? "active" : ""}`}
-                aria-current={pathname === "/contact" ? "page" : undefined}
+                href="/blog"
+                className={`nav-link ${pathname === "/blog" ? "active" : ""}`}
+                aria-current={pathname === "/blog" ? "page" : undefined}
               >
-                Contact
+                Game Design Blog
               </Link>
             </li>
              */}
