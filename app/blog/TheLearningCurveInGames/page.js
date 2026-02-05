@@ -28,7 +28,9 @@ export default function BlogLandingPage() {
           This is one reason why games have levels: both the player-based kind and the stage kind.
         </p>
 
+
         <h3 style={ { textAlign: 'center' } }>I'm getting Stronger!</h3>
+        <img src="/assets/blog/bg3pic.png" style={{ width: '100%', height: 'auto' }}></img>
         <br />
         <p>
           An abundance of video games these days have 'levels', allowing the player to grow stronger. Skill points and skill trees, player stats and unlocks, all come together in a well curated experience in order to entice players into the game. 
@@ -39,8 +41,8 @@ export default function BlogLandingPage() {
         </p>
         
         <h3 style={ { textAlign: 'center' } }>Where do I go now?</h3>
-
-
+        <img src="/assets/blog/nsmbpic.webp" style={{ width: '100%', height: 'auto' }}></img>
+        <br />
         <p>
           In the other example of levels, the stage kind, consider the quintessential Mario. 1-1 is an entirely different feel from Bowser's castle. The jumps are trickier, the map is more lethal, and 
           the enemies are more challenging. You learned how to jump, how to wall climb, and how to use powerups to their fullest. But even within the levels themselves, there is a learning curve.
@@ -50,7 +52,8 @@ export default function BlogLandingPage() {
         </p>
         
         <h3 style={ { textAlign: 'center' } }>The World Is out for you to Explore!</h3>
-
+        <img src="/assets/blog/factoriopic.jpg" style={{ width: '100%', height: 'auto' }}></img>
+        <br />
         <p>
           Ah yes, sandbox games like Minecraft and Factorio exist. But even these games have their own ways of teaching you. For example, you can't defeat the Ender Dragon the very second you load into the game. 
           You can't build Tier 3 conveyor belts without building normal conveyor belts first. There are restrictions in place, that allow you to learn the game first. A hidden learning curve. But most importantly,
@@ -58,7 +61,8 @@ export default function BlogLandingPage() {
         </p>          
 
         <h3 style={ { textAlign: 'center' } }>But... there really are...</h3>
-
+        <img src="/assets/blog/leaguepic.jpg" style={{ width: '100%', height: 'auto' }}></img>
+        <br />
         <p>
           Consider games like Fortnite or League of Legends or 2XKO. Every gun is unlocked, every champion is available, and the pool of fighting characters all have moves and combos available to them. 
           And yet, there are still some people who are able to memorize where all the guns spawn, or what all the champions do, or all the different characters' combos. Some would say the learning curve for these games is steep.
