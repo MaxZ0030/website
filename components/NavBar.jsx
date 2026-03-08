@@ -57,17 +57,17 @@ export default function NavBar() {
                 Projects
               </Link>
             </li>
-            {/* 
+            
             <li className="nav-item">
               <Link
                 href="/blog"
                 className={`nav-link ${pathname === "/blog" ? "active" : ""}`}
                 aria-current={pathname === "/blog" ? "page" : undefined}
               >
-                Game Design Blog
+                Game Design
               </Link>
             </li>
-             */}
+            
             <li className="nav-item">
               <Link
                 href="/resume"
